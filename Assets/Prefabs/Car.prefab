@@ -860,6 +860,8 @@ GameObject:
   - component: {fileID: 1731066757}
   - component: {fileID: 4645404603942794104}
   - component: {fileID: 4645404603942794103}
+  - component: {fileID: 1509166713}
+  - component: {fileID: 2087345045956015875}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -953,7 +955,6 @@ MonoBehaviour:
   - 0
   - 0
   SpeedHandleLimit: 1
-  remainAddAcceleText: {fileID: 0}
 --- !u!114 &1731066757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -990,8 +991,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f8327af9f7f4a9299153f85aa1d4d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  batteryIndicator: {fileID: 0}
   batteryText: {fileID: 0}
+  batteryFill: {fileID: 0}
   remainBattery: 0
   restrictor: 0
 --- !u!114 &4645404603942794103
@@ -1009,9 +1010,42 @@ MonoBehaviour:
   speed: 0
   speedText: {fileID: 0}
   needle: {fileID: 0}
-  needleRotation: {x: 120, y: -120}
+  needleRotation: {x: 90, y: -90}
   maxSpeedOfMeter: 300
   maxNeedleAngle: 90
+--- !u!114 &1509166713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4645404603942794111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b314278b8b3e4c85a1649fd21813cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addBoostPower: 0
+  remainBoostText: {fileID: 0}
+  boostIndicators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  availableImage: {fileID: 21300000, guid: e59bf1bfe6d98444f83cbad11b55d9bb, type: 3}
+  unavailableImage: {fileID: 21300000, guid: 9beae06603150419689dbdeb1464f9a3, type: 3}
+--- !u!114 &2087345045956015875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4645404603942794111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b963c20c1d2409bb42397057c4b127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carOwner: 0
 --- !u!1 &4645404603964776968
 GameObject:
   m_ObjectHideFlags: 0

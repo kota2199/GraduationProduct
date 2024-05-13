@@ -37,7 +37,7 @@ public class SpeedCheck : MonoBehaviour
     void Update()
     {
         speed = rigid.velocity.magnitude * 2;
-        speedText.text = speed.ToString("f0") + "km/h";
+        speedText.text = speed.ToString("f0");
 
         needleAngle = -1 * speed + maxNeedleAngle;
         needleRect.rotation = Quaternion.Euler(0.0f, 0.0f, needleAngle);

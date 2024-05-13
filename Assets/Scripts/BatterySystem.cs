@@ -8,20 +8,17 @@ public class BatterySystem : MonoBehaviour
     [SerializeField]
     private Text batteryText;
 
+    [SerializeField]
+    private RectTransform batteryFill;
+
     public float remainBattery, restrictor;
 
+    const float minRestrictor = 1;     // ?????l
+    const float maxRestrictor = 3;   // ?????l
 
-    const float minRestrictor = 1;     // 最小値
-    const float maxRestrictor = 3;   // 最大値
+    private float maxFillSize;
 
-    [SerializeField]
-    private int batteryScale;
-
-    [SerializeField]
-    private Image[] batteryScales;
-
-    [SerializeField]
-    private Sprite batteryScaleImages;
+    private bool humanCar = false;
 
 
     // Start is called before the first frame update
@@ -29,12 +26,22 @@ public class BatterySystem : MonoBehaviour
     {
         remainBattery = 100;
         restrictor = 1;
+
+        if(GetComponent<GameModeManager>().carOwner == GameModeManager.CarOwner.Human)
+        {
+            humanCar = true;
+            batteryFill = batteryFill.GetComponent<RectTransform>();
+            maxFillSize = batteryFill.localScale.x;
+        }
+        else
+        {
+            humanCar = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateUI();
         BaterryLimit();
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -47,33 +54,17 @@ public class BatterySystem : MonoBehaviour
             restrictor++;
             RestrictorLimit();
         }
-        
-        if (remainBattery <= 100)
+
+        if (humanCar)
         {
-            batteryScale = 4;
-        }
-        else if (remainBattery <= 75)
-        {
-            batteryScale = 3;
-        }
-        else if (remainBattery <= 50)
-        {
-            batteryScale = 2;
-        }
-        else if(remainBattery <= 25)
-        {
-            batteryScale = 1;
-        }
-        else if (remainBattery <= 0)
-        {
-            batteryScale = 0;
+            UpdateUI();
         }
     }
 
     private void UpdateUI()
     {
-
         batteryText.text = remainBattery.ToString("f0") + "%";
+        batteryFill.localScale = new Vector3(remainBattery / 100 * maxFillSize, maxFillSize, maxFillSize);
     }
 
     private void BaterryLimit()
@@ -90,9 +81,9 @@ public class BatterySystem : MonoBehaviour
 
     private void RestrictorLimit()
     {
-        // 最大値を超えたら最大値を渡す
+        // ?????l???????????????l???n??
         restrictor = System.Math.Min(restrictor, maxRestrictor);
-        // 最小値を下回ったら最小値を渡す
+        // ?????l?????????????????l???n??
         restrictor = System.Math.Max(restrictor, minRestrictor);
     }
 }
