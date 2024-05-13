@@ -11,6 +11,10 @@ public class CarSystem : MonoBehaviour
     private CountDown countDown;
 
     private BatterySystem batterySystem;
+
+    private BoostModeManager boostManager;
+
+
     public Rigidbody RB { get; private set; }
     [SerializeField] Transform CenterOfMass;
     [SerializeField] WheelCollider[] Wheel;
@@ -35,8 +39,6 @@ public class CarSystem : MonoBehaviour
     private int remainAddAccele = 3;
     private float restrictor;
 
-    [SerializeField]
-    private Text remainAddAcceleText;
 
     // Start is called before the first frame update
     void Awake()
@@ -44,6 +46,8 @@ public class CarSystem : MonoBehaviour
         countDown = manager.GetComponent<CountDown>();
 
         batterySystem = GetComponent<BatterySystem>();
+
+        boostManager = GetComponent<BoostModeManager>();
 
         Wheel = GetComponentsInChildren<WheelCollider>();
         RB = GetComponent<Rigidbody>();
@@ -72,7 +76,7 @@ public class CarSystem : MonoBehaviour
             if (GetComponent<BatterySystem>().remainBattery > 0)
             {
                 Wheel[i].steerAngle = InputVector.x * SteerWheels[i] * HandleAngle;
-                Wheel[i].motorTorque = InputVector.y * DriveWheels[i] * AccelPower * addAcceleAmount * restrictor;
+                Wheel[i].motorTorque = InputVector.y * DriveWheels[i] * AccelPower * boostManager.addBoostPower * restrictor;
                 Wheel[i].brakeTorque = Brake;
             }
 
@@ -82,8 +86,6 @@ public class CarSystem : MonoBehaviour
             Obj[i].position = _pos;
             Obj[i].rotation = _dir;
         }
-
-        remainAddAcceleText.text = "BoostMode:" + remainAddAccele.ToString() + "/3";
 
         if (InputVector.y > 0)
         {
@@ -100,22 +102,5 @@ public class CarSystem : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "AcceleArea")
-        {
-            if (remainAddAccele > 0)
-            {
-                addAcceleAmount = 1.2f;
-                remainAddAccele--;
-                Invoke("ReturnAcceleAmount", 5);
-            }
-        }
-    }
-    public void ReturnAcceleAmount()
-    {
-        addAcceleAmount = 1;
     }
 }

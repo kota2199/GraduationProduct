@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class LapCounter : MonoBehaviour
 {
+    private GameModeManager gameModeManager;
+
     //Lap
     [SerializeField]
     private GameObject[] checkPoints;
@@ -38,6 +40,8 @@ public class LapCounter : MonoBehaviour
 
     private void Awake()
     {
+        gameModeManager = GetComponent<GameModeManager>();
+
         maxCheckPoint = checkPoints.Length;
         checkedPoint = 0;
 
@@ -52,7 +56,11 @@ public class LapCounter : MonoBehaviour
     void Update()
     {
         TimeCounter();
-        UpdateUI();
+
+        if(gameModeManager.carOwner == GameModeManager.CarOwner.Human)
+        {
+            UpdateUI();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -98,7 +106,7 @@ public class LapCounter : MonoBehaviour
     private void UpdateUI()
     {
         timerText.text = "Time : " + timer.ToString("f2");
-        lapText.text = "Lap: " + lapCount.ToString() + "/" + maxLap.ToString();
+        lapText.text = lapCount.ToString() + "/" + maxLap.ToString();
         selfBestTimeText.text = "Fastest : " + selfBestTime.ToString("f2");
     }
 

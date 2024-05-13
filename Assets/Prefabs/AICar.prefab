@@ -381,6 +381,7 @@ GameObject:
   - component: {fileID: 2719266501084875692}
   - component: {fileID: 6575644918315649920}
   - component: {fileID: 1960940407883432829}
+  - component: {fileID: 5309645046163329588}
   m_Layer: 0
   m_Name: AICar
   m_TagString: Untagged
@@ -446,6 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f8185040bb4d8549a41c8ffe244fe21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   CenterOfMass: {fileID: 1960940407826148779}
   Wheel: []
   Obj: []
@@ -502,10 +504,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f8327af9f7f4a9299153f85aa1d4d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  batteryIndicator: {fileID: 0}
   batteryText: {fileID: 0}
+  batteryFill: {fileID: 0}
   remainBattery: 0
   restrictor: 0
+--- !u!114 &5309645046163329588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960940407883432826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b963c20c1d2409bb42397057c4b127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carOwner: 1
 --- !u!1 &1960940407931440695
 GameObject:
   m_ObjectHideFlags: 0
