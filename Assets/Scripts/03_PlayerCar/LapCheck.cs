@@ -9,7 +9,7 @@ public class LapCheck : MonoBehaviour
     [SerializeField]
     private int maxCheckNumber;
 
-    private int lapNumber;
+    public int lapNumber;
 
     public float bestTime;
 

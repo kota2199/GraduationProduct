@@ -12,6 +12,8 @@ public class CarSystem : MonoBehaviour
 
     private BatterySystem batterySystem;
 
+    private SpeedCheck speedCheck;
+
     private BoostModeManager boostManager;
 
 
@@ -46,6 +48,8 @@ public class CarSystem : MonoBehaviour
         countDown = manager.GetComponent<CountDown>();
 
         batterySystem = GetComponent<BatterySystem>();
+
+        speedCheck = GetComponent<SpeedCheck>();
 
         boostManager = GetComponent<BoostModeManager>();
 
@@ -89,16 +93,16 @@ public class CarSystem : MonoBehaviour
 
         if (InputVector.y > 0)
         {
-            GetComponent<BatterySystem>().remainBattery -= 0.8f * restrictor * Time.deltaTime;
+            batterySystem.remainBattery -= 1.0f * restrictor * Time.deltaTime;
         }
 
         if (InputVector.y <= 0)
         {
-            if (GetComponent<SpeedCheck>().speed > 0)
+            if (speedCheck.speed > 0)
             {
-                if (GetComponent<SpeedCheck>().speed >= 10)
+                if (speedCheck.speed >= 10)
                 {
-                    GetComponent<BatterySystem>().remainBattery += 2f * restrictor * Time.deltaTime;
+                    batterySystem.remainBattery += 2f * restrictor * Time.deltaTime;
                 }
             }
         }

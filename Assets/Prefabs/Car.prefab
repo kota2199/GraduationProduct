@@ -864,7 +864,7 @@ GameObject:
   - component: {fileID: 2087345045956015875}
   m_Layer: 0
   m_Name: Car
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -993,6 +993,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   batteryText: {fileID: 0}
   batteryFill: {fileID: 0}
+  batteryNormalColor: {r: 0.02745098, g: 0.9411765, b: 0.9647059, a: 1}
+  rowBatteryColor: {r: 0.9529412, g: 0, b: 0, a: 1}
   remainBattery: 0
   restrictor: 0
 --- !u!114 &4645404603942794103

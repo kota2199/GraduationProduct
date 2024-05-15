@@ -193,7 +193,7 @@ PrefabInstance:
     - target: {fileID: 4645404603942794104, guid: a96ffc39fb78444589675b0194e5242b, type: 3}
       propertyPath: batteryFill
       value: 
-      objectReference: {fileID: 333887567}
+      objectReference: {fileID: 333887569}
     - target: {fileID: 4645404603942794104, guid: a96ffc39fb78444589675b0194e5242b, type: 3}
       propertyPath: batteryText
       value: 
@@ -935,7 +935,7 @@ GameObject:
   - component: {fileID: 227635733}
   - component: {fileID: 227635732}
   - component: {fileID: 227635731}
-  - component: {fileID: 227635730}
+  - component: {fileID: 227635735}
   m_Layer: 0
   m_Name: Checker3
   m_TagString: CheckPoint
@@ -958,19 +958,6 @@ Transform:
   m_Father: {fileID: 1473738284}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &227635730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 227635728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc0a98e4bf764452fbdc69e626b212bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkNumber: 3
 --- !u!54 &227635731
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1050,6 +1037,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 227635728}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &227635735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227635728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5734bf19adaa54251808066376d5e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gapManager: {fileID: 0}
+  checkPointNumber: 3
 --- !u!1 &253220482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,14 +1430,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.02745098, g: 0.9411765, b: 0.9647059, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 30f56ca98d222485d9d38dd50ec54373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1373a6f0c0fa94e4f9d61c7357f4689b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1860,7 +1861,7 @@ GameObject:
   - component: {fileID: 457364896}
   - component: {fileID: 457364895}
   - component: {fileID: 457364894}
-  - component: {fileID: 457364893}
+  - component: {fileID: 457364898}
   m_Layer: 0
   m_Name: Checker4
   m_TagString: CheckPoint
@@ -1883,19 +1884,6 @@ Transform:
   m_Father: {fileID: 1473738284}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &457364893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457364891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc0a98e4bf764452fbdc69e626b212bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkNumber: 4
 --- !u!54 &457364894
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1975,6 +1963,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 457364891}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &457364898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457364891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5734bf19adaa54251808066376d5e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gapManager: {fileID: 0}
+  checkPointNumber: 4
 --- !u!1 &467469219
 GameObject:
   m_ObjectHideFlags: 0
@@ -3318,6 +3320,7 @@ GameObject:
   - component: {fileID: 750140986}
   - component: {fileID: 750140985}
   - component: {fileID: 750140984}
+  - component: {fileID: 750140989}
   m_Layer: 0
   m_Name: ControlLine
   m_TagString: ControlLine
@@ -3419,6 +3422,20 @@ Transform:
   m_Father: {fileID: 1473738284}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &750140989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750140983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5734bf19adaa54251808066376d5e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gapManager: {fileID: 0}
+  checkPointNumber: 0
 --- !u!1 &758428597
 GameObject:
   m_ObjectHideFlags: 0
@@ -4033,7 +4050,7 @@ Transform:
   - {fileID: 647048671}
   - {fileID: 1897863299}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1212815718
 GameObject:
@@ -4238,7 +4255,7 @@ GameObject:
   - component: {fileID: 1285101675}
   - component: {fileID: 1285101674}
   - component: {fileID: 1285101673}
-  - component: {fileID: 1285101672}
+  - component: {fileID: 1285101677}
   m_Layer: 0
   m_Name: Checker2
   m_TagString: CheckPoint
@@ -4261,19 +4278,6 @@ Transform:
   m_Father: {fileID: 1473738284}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &1285101672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1285101670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc0a98e4bf764452fbdc69e626b212bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkNumber: 2
 --- !u!54 &1285101673
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4353,6 +4357,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285101670}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1285101677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285101670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5734bf19adaa54251808066376d5e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gapManager: {fileID: 0}
+  checkPointNumber: 2
 --- !u!1 &1291539659
 GameObject:
   m_ObjectHideFlags: 0
@@ -6047,6 +6065,7 @@ GameObject:
   - component: {fileID: 1875369598}
   - component: {fileID: 1875369597}
   - component: {fileID: 1875369600}
+  - component: {fileID: 1875369601}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -6093,7 +6112,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1875369600
 MonoBehaviour:
@@ -6111,6 +6130,22 @@ MonoBehaviour:
   panel: {fileID: 674491727}
   countDownText: {fileID: 1241382544}
   isPlay: 0
+--- !u!114 &1875369601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875369596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85dbbda01149542659e7c93744efb5b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkPointParent: {fileID: 1473738284}
+  raceData: {fileID: 11400000, guid: 302e3789267294436bda791d0c85b8e6, type: 2}
+  positionCheckPoints: []
+  cars: []
 --- !u!1 &1879566256
 GameObject:
   m_ObjectHideFlags: 0
@@ -6304,7 +6339,7 @@ GameObject:
   - component: {fileID: 1913409579}
   - component: {fileID: 1913409578}
   - component: {fileID: 1913409577}
-  - component: {fileID: 1913409576}
+  - component: {fileID: 1913409581}
   m_Layer: 0
   m_Name: Checker1
   m_TagString: CheckPoint
@@ -6327,19 +6362,6 @@ Transform:
   m_Father: {fileID: 1473738284}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1913409576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1913409574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc0a98e4bf764452fbdc69e626b212bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkNumber: 1
 --- !u!54 &1913409577
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6419,6 +6441,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913409574}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1913409581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913409574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5734bf19adaa54251808066376d5e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gapManager: {fileID: 0}
+  checkPointNumber: 1
 --- !u!1 &1955578174
 GameObject:
   m_ObjectHideFlags: 0
