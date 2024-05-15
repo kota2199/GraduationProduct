@@ -248,7 +248,7 @@ PrefabInstance:
       objectReference: {fileID: 1875369596}
     - target: {fileID: 4645404603942794111, guid: a96ffc39fb78444589675b0194e5242b, type: 3}
       propertyPath: m_Name
-      value: CarForTA
+      value: TestCar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a96ffc39fb78444589675b0194e5242b, type: 3}
@@ -434,7 +434,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1960940407883432826, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_Name
-      value: AICar (1)
+      value: AICar_2
       objectReference: {fileID: 0}
     - target: {fileID: 1960940407883432829, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: batteryText
@@ -634,7 +634,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1960940407883432826, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_Name
-      value: AICar (2)
+      value: AICar_3
       objectReference: {fileID: 0}
     - target: {fileID: 1960940407883432829, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: batteryText
@@ -7057,7 +7057,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1960940407883432826, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_Name
-      value: AICar
+      value: AICar_1
       objectReference: {fileID: 0}
     - target: {fileID: 1960940407883432830, guid: ba2ebca86f579d74db156982e88ef2dd, type: 3}
       propertyPath: m_RootOrder
