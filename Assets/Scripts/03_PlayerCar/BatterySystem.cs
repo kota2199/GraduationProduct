@@ -9,7 +9,12 @@ public class BatterySystem : MonoBehaviour
     private Text batteryText;
 
     [SerializeField]
-    private RectTransform batteryFill;
+    private Image batteryFill;
+
+    private RectTransform batteryFillRect;
+
+    [SerializeField]
+    private Color batteryNormalColor, rowBatteryColor;
 
     public float remainBattery, restrictor;
 
@@ -30,8 +35,8 @@ public class BatterySystem : MonoBehaviour
         if(GetComponent<GameModeManager>().carOwner == GameModeManager.CarOwner.Human)
         {
             humanCar = true;
-            batteryFill = batteryFill.GetComponent<RectTransform>();
-            maxFillSize = batteryFill.localScale.x;
+            batteryFillRect = batteryFill.GetComponent<RectTransform>();
+            maxFillSize = batteryFillRect.localScale.x;
         }
         else
         {
@@ -64,7 +69,18 @@ public class BatterySystem : MonoBehaviour
     private void UpdateUI()
     {
         batteryText.text = remainBattery.ToString("f0") + "%";
-        batteryFill.localScale = new Vector3(remainBattery / 100 * maxFillSize, maxFillSize, maxFillSize);
+        batteryFillRect.localScale = new Vector3(remainBattery / 100 * maxFillSize, maxFillSize, maxFillSize);
+
+        if(remainBattery > 20)
+        {
+            batteryText.color = batteryNormalColor;
+            batteryFill.color = batteryNormalColor;
+        }
+        else
+        {
+            batteryText.color = rowBatteryColor;
+            batteryFill.color = rowBatteryColor;
+        }
     }
 
     private void BaterryLimit()

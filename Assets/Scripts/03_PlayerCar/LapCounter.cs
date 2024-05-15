@@ -16,7 +16,7 @@ public class LapCounter : MonoBehaviour
     [SerializeField]
     private int maxLap;
 
-    private int lapCount;
+    public int lapCount;
 
     [SerializeField]
     private Text lapText;
@@ -24,7 +24,7 @@ public class LapCounter : MonoBehaviour
     //Time
     public bool isCount;
 
-    private float timer, selfBestTime;
+    private float timer, selfBestTime, totalTime;
 
     [SerializeField]
     private Text timerText, selfBestTimeText;
@@ -71,7 +71,8 @@ public class LapCounter : MonoBehaviour
         }
 
         if(other.gameObject.tag == "ControlLine" && maxCheckPoint <= checkedPoint)
-        {   
+        {
+            //laped
             FastestCheck(timer, lapCount);
             timer = 0.0f;
 
@@ -92,6 +93,7 @@ public class LapCounter : MonoBehaviour
         if (isCount)
         {
             timer += Time.deltaTime;
+            totalTime += Time.deltaTime;
         }
     }
 

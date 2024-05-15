@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 5309645046163329588}
   m_Layer: 0
   m_Name: AICar
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -506,6 +506,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   batteryText: {fileID: 0}
   batteryFill: {fileID: 0}
+  batteryNormalColor: {r: 0, g: 0, b: 0, a: 0}
+  rowBatteryColor: {r: 0, g: 0, b: 0, a: 0}
   remainBattery: 0
   restrictor: 0
 --- !u!114 &5309645046163329588

@@ -9,6 +9,7 @@ TagManager:
   - AcceleArea
   - Order
   - ControlLine
+  - Car
   layers:
   - Default
   - TransparentFX
