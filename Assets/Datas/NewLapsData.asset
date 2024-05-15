@@ -14,16 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LapsData
   laps:
   - position:
-    - carName: Player
-      time: 33.1
-    - carName: AI_1
-      time: 40.3
-    - carName: AI_2
-      time: 45.4
-  - position:
-    - carName: Player
-      time: 33.1
-    - carName: AI_1
-      time: 40.3
-    - carName: AI_2
-      time: 45.4
+    - carName: 
+      time: 0
+    - carName: 
+      time: 0
