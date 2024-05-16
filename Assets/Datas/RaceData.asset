@@ -12,4 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03833199a76a1490ca1adefa9eaa850b, type: 3}
   m_Name: RaceData
   m_EditorClassIdentifier: 
-  cars: []
+  cars:
+  - CarName: AICar
+    Lap: 1
+    Position: 0
+    PassedPoint: 0
+    time: 0
+  - CarName: AICar (2)
+    Lap: 1
+    Position: 0
+    PassedPoint: 0
+    time: 0
+  - CarName: AICar (1)
+    Lap: 1
+    Position: 0
+    PassedPoint: 0
+    time: 0
+  - CarName: CarForTA
+    Lap: 1
+    Position: 0
+    PassedPoint: 0
+    time: 0
