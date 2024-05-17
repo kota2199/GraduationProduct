@@ -11,7 +11,7 @@ public class LapCounter : MonoBehaviour
     [SerializeField]
     private GameObject[] checkPoints;
 
-    private int maxCheckPoint, checkedPoint;
+    public int maxCheckPoint, checkedPoint;
 
     [SerializeField]
     private int maxLap;
@@ -68,6 +68,7 @@ public class LapCounter : MonoBehaviour
         if(other.gameObject.tag == "CheckPoint")
         {
             checkedPoint++;
+            other.gameObject.GetComponent<PositionChecker>().CarPassed(lapCount, this.gameObject);
         }
 
         if(other.gameObject.tag == "ControlLine" && maxCheckPoint <= checkedPoint)
@@ -84,6 +85,8 @@ public class LapCounter : MonoBehaviour
             {
                 lapCount++;
             }
+
+            other.gameObject.GetComponent<PositionChecker>().CarPassed(lapCount, this.gameObject);
         }
     }
 

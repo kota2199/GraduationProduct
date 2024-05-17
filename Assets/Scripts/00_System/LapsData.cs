@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [Serializable]
-public class LapData
+public class CarData
 {
     public string carName;
     public float time;
@@ -12,7 +12,7 @@ public class LapData
 [Serializable]
 public class LapTimeData
 {
-    public LapData[] position;
+    public List<CarData> position;
 }
 
 [CreateAssetMenu(fileName = "NewLapsData", menuName = "ScriptableObjects/LapsData", order = 1)]
@@ -20,7 +20,7 @@ public class LapsData : ScriptableObject
 {
     public List<LapTimeData> laps;
 
-    public void Claar()
+    public void ClearData()
     {
         laps.Clear();
     }

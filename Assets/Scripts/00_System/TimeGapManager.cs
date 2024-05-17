@@ -16,6 +16,8 @@ public class TimeGapManager : MonoBehaviour
     [SerializeField]
     private GameObject[] cars;
 
+    private float gapTimer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,49 +26,58 @@ public class TimeGapManager : MonoBehaviour
 
         cars = GameObject.FindGameObjectsWithTag("Car");
 
+        for(int i = 0; i < cars.Length; i++)
+        {
+            CarInfo car = new CarInfo();
+            car.CarName = cars[i].name;
+            car.Lap = 1;
+            car.PassedPoint = 1;
+            raceData.cars.Add(car);
+        }
+
         PositionChecker[] positionCheckers = checkPointParent.GetComponentsInChildren<PositionChecker>();
-        foreach(PositionChecker checker in positionCheckers)
+        foreach (PositionChecker checker in positionCheckers)
         {
             positionCheckPoints.Add(checker.gameObject);
         }
-
-        for(int i = 0; i < cars.Length; i++)
-        {
-            //InitializeData
-            CarInfo newCar = new CarInfo();
-            newCar.Lap = 0;
-            newCar.PassedPoint = 0;
-            newCar.Position = raceData.cars.Count + 1;
-
-            // ScriptableObjectのリストに追加
-            raceData.cars.Add(newCar);
-        }
     }
 
-    public void PassPoint(int passedPoint, GameObject hitCar)
+    private void Update()
     {
-        int lap = hitCar.GetComponent<LapCounter>().lapCount;
-        Debug.Log("CarName : " + hitCar.gameObject.name + " Lap : " + lap.ToString() + " Passed Point : " + passedPoint);
+        gapTimer += Time.deltaTime;
+    }
 
-        //hitCarとcarsを照会。for
-        for(int i = 0; i < cars.Length; i++)
+    public void PassPoint(GameObject hitCar, int pointNumber, string pointTag, int lap)
+    {
+        if(pointTag == "CheckPoint")
         {
-            if(cars[i].name == hitCar.name)
+            for (int i = 0; i < cars.Length; i++)
             {
-                if (raceData.cars[i].PassedPoint + 1 == passedPoint)
+                if(cars[i].name == hitCar.name
+                    && lap == raceData.GetCarLap(hitCar.name)
+                    && pointNumber == raceData.GetCarPassedPointNumber(hitCar.name))
                 {
-
+                    raceData.UpdateCarInfo(hitCar.name, lap, pointNumber + 1, gapTimer);
+                    raceData.UpdateCarPositionsByTime();
                 }
-                else
-                if (raceData.cars[i].Lap + 1 == lap && passedPoint == 0)
-                {
-
-                }
-                break;
             }
         }
-
-        //該当carのデータのPassed + 1 == passedPoint
-        //該当carのデータのLap + 1 == lap || passedPoint == 0
+        else if(pointTag == "ControlLine")
+        {
+            for (int i = 0; i < cars.Length; i++)
+            {
+                if (cars[i].name == hitCar.name
+                    && lap != 1)
+                {
+                    hitCar.GetComponent<LapCounter>().checkedPoint = 0;
+                    raceData.UpdateCarInfo(hitCar.name, lap, 1, gapTimer);
+                    raceData.UpdateCarPositionsByTime();
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("TagName is Different.");
+        }
     }
 }
