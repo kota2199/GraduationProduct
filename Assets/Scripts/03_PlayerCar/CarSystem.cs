@@ -80,7 +80,7 @@ public class CarSystem : MonoBehaviour
             if (GetComponent<BatterySystem>().remainBattery > 0)
             {
                 Wheel[i].steerAngle = InputVector.x * SteerWheels[i] * HandleAngle;
-                Wheel[i].motorTorque = InputVector.y * DriveWheels[i] * AccelPower * boostManager.addBoostPower * restrictor;
+                Wheel[i].motorTorque = InputVector.y * DriveWheels[i] * AccelPower * boostManager.addBoostPower * (restrictor / 4);
                 Wheel[i].brakeTorque = Brake;
             }
 

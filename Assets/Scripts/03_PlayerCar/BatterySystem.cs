@@ -19,7 +19,10 @@ public class BatterySystem : MonoBehaviour
     public float remainBattery, restrictor;
 
     const float minRestrictor = 1;     // ?????l
-    const float maxRestrictor = 3;   // ?????l
+    const float maxRestrictor = 4;   // ?????l
+
+    [SerializeField]
+    private GameObject[] manageIndicators;
 
     private float maxFillSize;
 
@@ -30,7 +33,7 @@ public class BatterySystem : MonoBehaviour
     void Start()
     {
         remainBattery = 100;
-        restrictor = 1;
+        restrictor = 4;
 
         if(GetComponent<GameModeManager>().carOwner == GameModeManager.CarOwner.Human)
         {
@@ -53,11 +56,13 @@ public class BatterySystem : MonoBehaviour
         {
             restrictor--;
             RestrictorLimit();
+            UpdateManageIndicator();
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
             restrictor++;
             RestrictorLimit();
+            UpdateManageIndicator();
         }
 
         if (humanCar)
@@ -101,5 +106,21 @@ public class BatterySystem : MonoBehaviour
         restrictor = System.Math.Min(restrictor, maxRestrictor);
         // ?????l?????????????????l???n??
         restrictor = System.Math.Max(restrictor, minRestrictor);
+    }
+
+    private void UpdateManageIndicator()
+    {
+        for (int i = 0; i < manageIndicators.Length; i++)
+        {
+
+            if(i > restrictor- 1)
+            {
+                manageIndicators[i].SetActive(false);
+            }
+            else
+            {
+                manageIndicators[i].SetActive(true);
+            }
+        }
     }
 }
