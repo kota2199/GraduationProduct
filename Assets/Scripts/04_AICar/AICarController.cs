@@ -43,6 +43,7 @@ public class AICarController : MonoBehaviour
     void Awake()
     {
         countDown = manager.GetComponent<CountDown>();
+
         batterySystem = GetComponent<BatterySystem>();
 
         Wheel = GetComponentsInChildren<WheelCollider>();
@@ -80,7 +81,7 @@ public class AICarController : MonoBehaviour
             if (GetComponent<BatterySystem>().remainBattery > 0)
             {
                 Wheel[i].steerAngle = steerAngle * SteerWheels[i];
-                Wheel[i].motorTorque = throttle * DriveWheels[i] * AccelPower * addAcceleAmount * restrictor;
+                Wheel[i].motorTorque = throttle * DriveWheels[i] * AccelPower * addAcceleAmount * (restrictor / 4);
                 Wheel[i].brakeTorque = brakeTorque;
             }
 
