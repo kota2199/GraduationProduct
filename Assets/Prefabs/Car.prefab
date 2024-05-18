@@ -972,7 +972,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  maxCheckPoint: 0
+  checkedPoint: 0
   maxLap: 3
+  lapCount: 0
   lapText: {fileID: 0}
   isCount: 0
   timerText: {fileID: 0}
@@ -997,6 +1000,11 @@ MonoBehaviour:
   rowBatteryColor: {r: 0.9529412, g: 0, b: 0, a: 1}
   remainBattery: 0
   restrictor: 0
+  manageIndicators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &4645404603942794103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1033,8 +1041,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  availableImage: {fileID: 21300000, guid: e59bf1bfe6d98444f83cbad11b55d9bb, type: 3}
-  unavailableImage: {fileID: 21300000, guid: 9beae06603150419689dbdeb1464f9a3, type: 3}
+  availableImage: {fileID: 21300000, guid: 9e1b3b99ec6bf5c4f9249ff5fc5b3ff6, type: 3}
+  unavailableImage: {fileID: 21300000, guid: e5824b2e4ab87644cb7244b7375923d0, type: 3}
 --- !u!114 &2087345045956015875
 MonoBehaviour:
   m_ObjectHideFlags: 0
