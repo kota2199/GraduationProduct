@@ -878,8 +878,8 @@ Transform:
   m_GameObject: {fileID: 4645404603942794111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.3, z: -3.68}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4645404603027056096}
   - {fileID: 4645404603121666389}
@@ -942,7 +942,7 @@ MonoBehaviour:
   InputVector: {x: 0, y: 0}
   Brake: 0
   AccelPower: 1500
-  HandleAngle: 15
+  HandleAngle: 0
   BrakePower: 1000
   DriveWheels:
   - 0
@@ -1036,7 +1036,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   addBoostPower: 0
-  remainBoostText: {fileID: 0}
+  length: 0
+  isBoostCountText: {fileID: 0}
   boostIndicators:
   - {fileID: 0}
   - {fileID: 0}
