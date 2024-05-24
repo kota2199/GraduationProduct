@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1817236227}
-  m_IndirectSpecularColor: {r: 0.45140058, g: 0.50050086, b: 0.57022893, a: 1}
+  m_IndirectSpecularColor: {r: 0.4513994, g: 0.5004999, b: 0.5702274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7446,10 +7446,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1509166713, guid: a96ffc39fb78444589675b0194e5242b, type: 3}
-      propertyPath: remainBoostText
-      value: 
-      objectReference: {fileID: 1050975113}
-    - target: {fileID: 1509166713, guid: a96ffc39fb78444589675b0194e5242b, type: 3}
       propertyPath: isBoostCountText
       value: 
       objectReference: {fileID: 1050975113}
@@ -7538,18 +7534,6 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4645404603942794107, guid: a96ffc39fb78444589675b0194e5242b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4645404603942794107, guid: a96ffc39fb78444589675b0194e5242b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4645404603942794107, guid: a96ffc39fb78444589675b0194e5242b, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4645404603942794107, guid: a96ffc39fb78444589675b0194e5242b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.5
       objectReference: {fileID: 0}
@@ -7589,17 +7573,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4645404603942794107, guid: a96ffc39fb78444589675b0194e5242b, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4645404603942794109, guid: a96ffc39fb78444589675b0194e5242b, type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 238232967}
     - target: {fileID: 4645404603942794109, guid: a96ffc39fb78444589675b0194e5242b, type: 3}
       propertyPath: HandleAngle
+<<<<<<< HEAD
       value: 5
+=======
+      value: 8
+>>>>>>> 8c2283500740da450843584e97bed05d7372ebce
       objectReference: {fileID: 0}
     - target: {fileID: 4645404603942794111, guid: a96ffc39fb78444589675b0194e5242b, type: 3}
       propertyPath: m_Name
