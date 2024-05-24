@@ -7597,6 +7597,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 238232967}
+    - target: {fileID: 4645404603942794109, guid: a96ffc39fb78444589675b0194e5242b, type: 3}
+      propertyPath: HandleAngle
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4645404603942794111, guid: a96ffc39fb78444589675b0194e5242b, type: 3}
       propertyPath: m_Name
       value: Player
