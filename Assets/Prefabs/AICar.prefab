@@ -398,8 +398,8 @@ Transform:
   m_GameObject: {fileID: 1960940407883432826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.62, y: 1.37, z: -4.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1960940408108684773}
   - {fileID: 1960940408148818256}
@@ -485,7 +485,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  maxCheckPoint: 0
+  checkedPoint: 0
   maxLap: 3
+  lapCount: 0
   lapText: {fileID: 0}
   isCount: 0
   timerText: {fileID: 0}
@@ -510,6 +513,7 @@ MonoBehaviour:
   rowBatteryColor: {r: 0, g: 0, b: 0, a: 0}
   remainBattery: 0
   restrictor: 0
+  manageIndicators: []
 --- !u!114 &5309645046163329588
 MonoBehaviour:
   m_ObjectHideFlags: 0
