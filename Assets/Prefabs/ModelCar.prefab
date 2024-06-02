@@ -259,8 +259,8 @@ MonoBehaviour:
   InputVector: {x: 0, y: 0}
   Brake: 0
   AccelPower: 1500
-  HandleAngle: 10
-  BrakePower: 1000
+  HandleAngle: 15
+  BrakePower: 4000
   DriveWheels:
   - 0
   - 0
