@@ -69,7 +69,7 @@ public class TimeGapManager : MonoBehaviour
                 if (cars[i].name == hitCar.name
                     && lap != 1)
                 {
-                    hitCar.GetComponent<LapCounter>().checkedPoint = 0;
+                    hitCar.GetComponent<LapCounter>().checkedNum = 0;
                     raceData.UpdateCarInfo(hitCar.name, lap, 1, gapTimer);
                     raceData.UpdateCarPositionsByTime();
                 }

@@ -9,9 +9,12 @@ public class LapCounter : MonoBehaviour
 
     //Lap
     [SerializeField]
-    private GameObject[] checkPoints;
+    private GameObject checkPointsParent;
 
-    public int maxCheckPoint, checkedPoint;
+    [SerializeField]
+    private Transform[] checkPoints;
+
+    public int maxCheckPoint, checkedNum;
 
     [SerializeField]
     private int maxLap;
@@ -33,8 +36,16 @@ public class LapCounter : MonoBehaviour
     [SerializeField]
     private GameObject finishedPanel;
 
+    public bool isFinished;
+
     [SerializeField]
     private Text finishedBestTimeText;
+
+    //ForReplace
+    private ReplaceController replacer;
+
+    //Human or AI
+    private bool humanCar = false;
 
     // Start is called before the first frame update
 
@@ -42,14 +53,37 @@ public class LapCounter : MonoBehaviour
     {
         gameModeManager = GetComponent<GameModeManager>();
 
+        if (gameModeManager.carOwner == GameModeManager.CarOwner.Human)
+        {
+            humanCar = true;
+        }
+        else
+        {
+            humanCar = false;
+        }
+
+        if (humanCar)
+        {
+            replacer = GetComponent<ReplaceController>();
+        }
+
+        checkPoints = new Transform[checkPointsParent.transform.childCount];
+
+        for (var i = 0; i < checkPoints.Length; ++i)
+        {
+            checkPoints[i] = checkPointsParent.transform.GetChild(i);
+        }
+
         maxCheckPoint = checkPoints.Length;
-        checkedPoint = 0;
+        checkedNum = 0;
 
         lapCount = 1;
 
         isCount = false;
         timer = 0.0f;
         selfBestTime = 0.0f;
+
+        isFinished = false;
     }
 
     // Update is called once per frame
@@ -57,7 +91,7 @@ public class LapCounter : MonoBehaviour
     {
         TimeCounter();
 
-        if(gameModeManager.carOwner == GameModeManager.CarOwner.Human)
+        if(humanCar)
         {
             UpdateUI();
         }
@@ -67,17 +101,28 @@ public class LapCounter : MonoBehaviour
     {
         if(other.gameObject.tag == "CheckPoint")
         {
-            checkedPoint++;
-            other.gameObject.GetComponent<PositionChecker>().CarPassed(lapCount, this.gameObject);
+            Debug.Log(other.gameObject.name);
+            Debug.Log("num" + checkedNum);
+            if (other.gameObject.name == checkPoints[checkedNum].name)
+            {
+                checkedNum++;
+                other.gameObject.GetComponent<PositionChecker>().CarPassed(lapCount, this.gameObject);
+
+                //SetReplacePoint
+                if (humanCar)
+                {
+                    replacer.SetReplacePoint(other.gameObject.transform);
+                }
+            }
         }
 
-        if(other.gameObject.tag == "ControlLine" && maxCheckPoint <= checkedPoint)
+        if(other.gameObject.tag == "ControlLine" && maxCheckPoint <= checkedNum)
         {
             //laped
             FastestCheck(timer, lapCount);
             timer = 0.0f;
 
-            if(lapCount >= maxLap)
+            if(lapCount >= maxLap && humanCar)
             {
                 Finished();
             }
@@ -113,11 +158,12 @@ public class LapCounter : MonoBehaviour
         timerText.text = "Time : " + timer.ToString("f2");
         lapText.text = lapCount.ToString() + "/" + maxLap.ToString();
         selfBestTimeText.text = "Fastest : " + selfBestTime.ToString("f2");
+        finishedPanel.SetActive(isFinished);
     }
 
     private void Finished()
     {
-        finishedPanel.SetActive(true);
+        isFinished = true;
         finishedBestTimeText.text = "Fastest : " + selfBestTime.ToString("f2");
     }
 }

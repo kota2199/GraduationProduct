@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ec477ccb2fd4754a515532e2913c49, type: 3}
+  m_Name: AudioData
+  m_EditorClassIdentifier: 
+  ses:
+  - seClip: {fileID: 8300000, guid: 9f9e42a19597844f8a125bf793cfdf2e, type: 3}
+  - seClip: {fileID: 8300000, guid: 5da8490db0c6d4ddd99cbfb2d0bdb0db, type: 3}
+  - seClip: {fileID: 8300000, guid: 71be99e0f7aa34818b03122ff2d211cf, type: 3}
+  - seClip: {fileID: 8300000, guid: de6afd41175784879a476bacd824cb0f, type: 3}
+  - seClip: {fileID: 8300000, guid: d6d5151a3ff274d84b5c11c61679c663, type: 3}
+  - seClip: {fileID: 8300000, guid: c1af6e97230fe4f73bd978b605e905a3, type: 3}
+  - seClip: {fileID: 8300000, guid: fc5f844f2e15441f688a64768237d1fd, type: 3}
+  - seClip: {fileID: 8300000, guid: 15025182515a94a3b9c78d450d82d521, type: 3}
+  - seClip: {fileID: 8300000, guid: b31d8ae7db2e94efa91d45c8b30691ce, type: 3}
+  - seClip: {fileID: 8300000, guid: 21c17bff365a34b1abbb06c4416f3b5e, type: 3}
+  - seClip: {fileID: 8300000, guid: b0d791b232b2e42cc8cc33db485f26e1, type: 3}
+  bgms:
+  - bgmClip: {fileID: 8300000, guid: c5586de5d06304f0d89d9c3c4093374f, type: 3}
+  - bgmClip: {fileID: 8300000, guid: 9125a2d67567444829ea3488c2685483, type: 3}
+  - bgmClip: {fileID: 8300000, guid: 286cecb28a59641949244eaf0e971105, type: 3}
+  - bgmClip: {fileID: 8300000, guid: 2a01b0118f9de4b4092b2d9867976dcf, type: 3}

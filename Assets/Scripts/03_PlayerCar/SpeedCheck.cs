@@ -28,18 +28,34 @@ public class SpeedCheck : MonoBehaviour
 
     private RectTransform needleRect;
 
-    void Start()
+    //Human or AI
+    private bool humanCar = false;
+
+    private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
-        needleRect = needle.gameObject.GetComponent<RectTransform>();
-    }
 
+        if (GetComponent<GameModeManager>().carOwner == GameModeManager.CarOwner.Human)
+        {
+            humanCar = true;
+            rigid = GetComponent<Rigidbody>();
+            needleRect = needle.gameObject.GetComponent<RectTransform>();
+        }
+        else
+        {
+            humanCar = false;
+        }
+    }
     void Update()
     {
         speed = rigid.velocity.magnitude * 2;
-        speedText.text = speed.ToString("f0");
 
-        needleAngle = -1 * speed + maxNeedleAngle;
-        needleRect.rotation = Quaternion.Euler(0.0f, 0.0f, needleAngle);
+        if (humanCar)
+        {
+            speedText.text = speed.ToString("f0");
+
+            needleAngle = -1 * speed + maxNeedleAngle;
+            needleRect.rotation = Quaternion.Euler(0.0f, 0.0f, needleAngle);
+        }
     }
 }

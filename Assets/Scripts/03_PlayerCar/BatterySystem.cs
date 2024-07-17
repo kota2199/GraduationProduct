@@ -5,16 +5,10 @@ using UnityEngine.UI;
 
 public class BatterySystem : MonoBehaviour
 {
+    private CarSystem carSystem;
+
     [SerializeField]
     private Text batteryText;
-
-    [SerializeField]
-    private Image batteryFill;
-
-    private RectTransform batteryFillRect;
-
-    [SerializeField]
-    private Color batteryNormalColor, rowBatteryColor;
 
     public float remainBattery, restrictor;
 
@@ -22,24 +16,52 @@ public class BatterySystem : MonoBehaviour
     const float maxRestrictor = 4;   // ?????l
 
     [SerializeField]
-    private GameObject[] manageIndicators;
+    private Image[] manageIndicators;
 
-    private float maxFillSize;
+    [SerializeField]
+    private Sprite available, unavailable;
 
+
+    //needle
+    [SerializeField]
+    private Image needle;
+
+    [SerializeField]
+    private Vector2 needleRotation;
+
+    [SerializeField]
+    private float maxSpeedOfMeter;
+
+    [SerializeField]
+    private float maxNeedleAngle;
+
+    private float needleAngle;
+
+    private RectTransform needleRect;
+
+    [SerializeField]
+    private string restrictorUp, restrictorDown;
+
+    //Audio
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip upSound, downSound;
+
+    //Human or AI
     private bool humanCar = false;
 
-
-    // Start is called before the first frame update
     void Start()
     {
+        carSystem = GetComponent<CarSystem>();
+
         remainBattery = 100;
         restrictor = 4;
 
         if(GetComponent<GameModeManager>().carOwner == GameModeManager.CarOwner.Human)
         {
             humanCar = true;
-            batteryFillRect = batteryFill.GetComponent<RectTransform>();
-            maxFillSize = batteryFillRect.localScale.x;
+            HumanInitialize();
         }
         else
         {
@@ -47,45 +69,58 @@ public class BatterySystem : MonoBehaviour
         }
     }
 
+    private void HumanInitialize()
+    {
+        needleRect = needle.gameObject.GetComponent<RectTransform>();
+
+        audioSource = GetComponent<AudioSource>();
+    }
+
     // Update is called once per frame
     void Update()
     {
         BaterryLimit();
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            restrictor--;
-            RestrictorLimit();
-            UpdateManageIndicator();
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            restrictor++;
-            RestrictorLimit();
-            UpdateManageIndicator();
-        }
-
         if (humanCar)
         {
+            if (Input.GetButtonDown(restrictorDown) || Input.GetKeyDown(KeyCode.Q))
+            {
+                ChangeRestrictor(-1);
+            }
+            if (Input.GetButtonDown(restrictorUp) || Input.GetKeyDown(KeyCode.E))
+            {
+                ChangeRestrictor(1);
+            }
+
             UpdateUI();
+        }
+    }
+
+    private void ChangeRestrictor(int amount)
+    {
+        restrictor += amount;
+        RestrictorLimit();
+        UpdateManageIndicator();
+
+        audioSource.Stop();
+        if(amount > 0)
+        {
+            audioSource.PlayOneShot(upSound);
+        }
+        else
+        {
+            audioSource.PlayOneShot(downSound);
         }
     }
 
     private void UpdateUI()
     {
-        batteryText.text = remainBattery.ToString("f0") + "%";
-        batteryFillRect.localScale = new Vector3(remainBattery / 100 * maxFillSize, maxFillSize, maxFillSize);
+        //text
+        batteryText.text = remainBattery.ToString("f0");
 
-        if(remainBattery > 20)
-        {
-            batteryText.color = batteryNormalColor;
-            batteryFill.color = batteryNormalColor;
-        }
-        else
-        {
-            batteryText.color = rowBatteryColor;
-            batteryFill.color = rowBatteryColor;
-        }
+        //needle's angle
+        needleAngle = -1 * remainBattery * 1.8f + maxNeedleAngle;
+        needleRect.rotation = Quaternion.Euler(0.0f, 0.0f, needleAngle);
     }
 
     private void BaterryLimit()
@@ -115,11 +150,11 @@ public class BatterySystem : MonoBehaviour
 
             if(i > restrictor- 1)
             {
-                manageIndicators[i].SetActive(false);
+                manageIndicators[i].sprite = unavailable;
             }
             else
             {
-                manageIndicators[i].SetActive(true);
+                manageIndicators[i].sprite = available;
             }
         }
     }

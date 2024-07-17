@@ -145,7 +145,6 @@ public class AICarController : MonoBehaviour
         Vector3 nextWaypoint = waypoints[(currentWaypointIndex + 1) % waypoints.Length].position;
         
         float distance = Vector3.Distance(currentWaypoint, nextWaypoint);
-        Debug.Log("Distance:" + distance);
 
         if (distance < 10f)
             return 30f;

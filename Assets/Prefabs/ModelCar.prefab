@@ -370,6 +370,10 @@ MonoBehaviour:
   - 0
   - 0
   SpeedHandleLimit: 1
+  padControll: 1
+  acceleButton: Trigger_R2
+  brakeButton: Trigger_L2
+  steerButton: Horizontal Stick-L
 --- !u!114 &9014924654118252084
 MonoBehaviour:
   m_ObjectHideFlags: 0

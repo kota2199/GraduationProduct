@@ -7,36 +7,32 @@ public class SceneTransition : MonoBehaviour
 {
     private string sceneName;
 
-    // Start is called before the first frame update
-    void Start()
+    private FadeInOut fadeController;
+
+    void Awake()
     {
-        
+        fadeController = GetComponent<FadeInOut>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void ToHome()
     {
         sceneName = "Home";
+        fadeController.FadeOut();
         Invoke("SceneTrans",2);
     }
-    public void ToTutorial()
+    public void ToRace()
     {
+        sceneName = "TestCurcuit";
+        fadeController.FadeOut();
+        Invoke("SceneTrans", 2);
+    }
+    public void Retry()
+    {
+        sceneName = SceneManager.GetActiveScene().name;
+        fadeController.FadeOut();
+        Invoke("SceneTrans", 2);
+    }
 
-    }
-    public void ToOnlineRace()
-    {
-        sceneName = "PreStage_Online";
-        Invoke("SceneTrans", 2);
-    }
-    public void ToTA()
-    {
-        sceneName = "PreStage_TA";
-        Invoke("SceneTrans", 2);
-    }
     public void SceneTrans()
     {
         SceneManager.LoadScene(sceneName);

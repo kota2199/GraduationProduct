@@ -23,7 +23,18 @@ public class BoostModeManager : MonoBehaviour
 
     private bool isBoost;
 
+    //Audio
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip boostSound;
+
     // Start is called before the first frame update
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Start()
     {
         isBoost = false;
@@ -56,6 +67,9 @@ public class BoostModeManager : MonoBehaviour
 
                 addBoostPower = 1.5f;
                 remainBoostMode--;
+
+                audioSource.Stop();
+                audioSource.PlayOneShot(boostSound);
 
                 UpdateUI();
 
