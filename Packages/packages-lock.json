@@ -1,6 +1,6 @@
 {
   "dependencies": {
-      "com.occasoftware.super-simple-skybox": {
+    "com.occasoftware.super-simple-skybox": {
       "version": "file:com.occasoftware.super-simple-skybox",
       "depth": 0,
       "source": "embedded",
